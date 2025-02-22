@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBloom - Explore the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #005f73;
+            padding: 15px 20px;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+        .search-box {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .hero {
+            background: url('https://images.pexels.com/photos/1485894/pexels-photo-1485894.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 50px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .btn {
+            background: #ff5733;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 20px;
+            color: white;
+        }
+        .search-results {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        .recommendations {
+            margin: 40px;
+            text-align: center;
+        }
+        .recommendations img {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TravelBloom</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <input type="text" class="search-box" id="search" placeholder="Search for destinations...">
+        <div class="search-results" id="results"></div>
+    </div>
+
+    <section class="hero">
+        <h1>Explore the World with TravelBloom</h1>
+        <p>Discover breathtaking destinations, embrace new cultures, and create unforgettable memories.</p>
+        <button class="btn">Book Now</button>
+        <div class="social-icons">
+            <a href="#">🔵 Facebook</a>
+            <a href="#">📷 Instagram</a>
+            <a href="#">🐦 Twitter</a>
+        </div>
+    </section>
+
+    <section class="recommendations">
+        <h2>Beach Destinations</h2>
+        <img src="https://images.pexels.com/photos/312105/pexels-photo-312105.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beach 1">
+        <img src="https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beach 2">
+        
+        <h2>Temple Recommendations</h2>
+        <img src="https://images.pexels.com/photos/1631665/pexels-photo-1631665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Temple 1">
+        <img src="https://images.pexels.com/photos/574313/pexels-photo-574313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Temple 2">
+        
+        <h2>Recommendations by Country</h2>
+        <img src="https://images.pexels.com/photos/2798008/pexels-photo-2798008.jpeg?auto=compress&cs=tinysrgb&w=600" alt="France">
+        <img src="https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Japan">
+    </section>
+
+    <script>
+        const destinations = ["Paris", "New York", "Tokyo", "Bali", "London", "Dubai", "Sydney", "Rome", "Barcelona", "Amsterdam"];
+        
+        document.getElementById("search").addEventListener("input", function() {
+            let query = this.value.toLowerCase();
+            let matches = destinations.filter(destination => destination.toLowerCase().includes(query));
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = matches.length ? "Suggested: " + matches.join(", ") : "No matches found";
+        });
+    </script>
+</body>
+</html>
